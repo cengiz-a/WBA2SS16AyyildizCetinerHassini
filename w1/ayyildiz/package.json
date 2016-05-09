@@ -1,0 +1,23 @@
+{
+  "name": "WBA2SS16W1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cengiz-a/WBA2SS16W1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cengiz-a/WBA2SS16W1/issues"
+  },
+  "homepage": "https://github.com/cengiz-a/WBA2SS16W1#readme",
+  "dependencies": {
+    "chalk": "^1.1.3"
+  }
+}
