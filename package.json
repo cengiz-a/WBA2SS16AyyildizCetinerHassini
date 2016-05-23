@@ -1,0 +1,24 @@
+{
+  "name": "WBA2SS16AyyildizCetinerHassini",
+  "version": "1.0.0",
+  "description": "WBA 2 Repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cengiz-a/WBA2SS16AyyildizCetinerHassini.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cengiz-a/WBA2SS16AyyildizCetinerHassini/issues"
+  },
+  "homepage": "https://github.com/cengiz-a/WBA2SS16AyyildizCetinerHassini#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  }
+}
