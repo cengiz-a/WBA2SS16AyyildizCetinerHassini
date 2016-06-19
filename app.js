@@ -1,34 +1,29 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var redis = require("redis"),
+    client = redis.createClient();
+
 var app = express();
 var jsonParser = bodyParser.json();
 
-app.use (express.static(WBA2SS16AyyildizCetinerHassini + '/public'));
+app.use(jsonParser);
 
-app.use(function(err, req, res, next) {
-	console.error(err.stack);
-	res.end(err.status + ' ' + err.messages);
-
-});
-
-app.use(function(req,res,next) {
-	console.log('Time: %d ' + ' Request-Pfad: ' + req.path, Date.now());
-	next();
-})
-
-app.get('/beispiel', jsonParser, function (req, res) {
-	// es wird eine ressource aufgerufen
-});
-
-app.post('/beispiel', jsonParser, function (req, res) {
+app.post('/beispiel', function (req, res) {
 	// ressourcen werden erstellt
+	console.log(JSON.stringify(req.body));
+	client.set('beispiel', JSON.stringify(req.body));
+	res.end();
 });
 
-app.all('/beispiel', function (req, res, next) {
-	console.log('Irgendwas, irgendwas!');
-	next();
+app.get('/beispiel', function (req, res) {
+	// es wird eine ressource aufgerufen
+	client.get("beispiel", function (err, reply) {
+		console.log(reply);
+		res.write(reply);
+		//res.json(JSON.parse(reply));
+		res.end();
+	});
 });
 
-
-app listen(3000);
+app.listen(3000);

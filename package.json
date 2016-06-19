@@ -19,6 +19,7 @@
   "homepage": "https://github.com/cengiz-a/WBA2SS16AyyildizCetinerHassini#readme",
   "dependencies": {
     "body-parser": "^1.15.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "redis": "^2.6.1"
   }
 }
