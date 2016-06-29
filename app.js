@@ -34,6 +34,7 @@ app.post('/todos', function (req, res) {
 			if(err) {
 				console.log('du hast was falsch gemacht, bitch');
 			}
+			res.json(todo);
 			res.end();
 		});
 	});
@@ -65,6 +66,7 @@ app.put('/todos/:id', function(req, res) {
 	todo.id = req.params.id;
 
 	client.lset('todos', req.params.id, JSON.stringify(todo), function(err, response) {
+		res.json(todo);
 		res.end();
 	});
 });
@@ -106,6 +108,7 @@ app.post('/users', function (req, res) {
 		user.id = result; 
 
 		client.rpush('users', JSON.stringify(user), function(err, result) { 
+			res.json(user);
 			res.end();
 		});
 	});
@@ -137,6 +140,7 @@ app.put('/users/:id', function(req, res) {
 	user.id = req.params.id;
 
 	client.lset('users', req.params.id, JSON.stringify(user), function(err, response) {
+		res.json(user);
 		res.end();
 	});
 });
@@ -163,5 +167,7 @@ app.delete ('/users/:id', function (req, result) {
 		result.end();
 	});
 });
+
+app.use(express.static(__dirname + '/public'));
 
 app.listen(3000);

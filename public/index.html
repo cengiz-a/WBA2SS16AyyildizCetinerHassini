@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous">
+	</script>
+	<script>
+		$.ajax({
+		  method: "GET",
+		  url: "http://localhost:3000/todos",
+		  success: function(data) {
+		  	var table = document.getElementById('todos');
+			
+			data.forEach(function(todo) {
+				table.innerHTML += '<tr><td>' + "id:" + ' : ' + todo.id + '</td>
+										<td>' + "Art:" + ' : ' + todo.name + '</td>
+										<td>' + "Ort:" + ' : ' + todo.place + '</td>
+										<td>' + "Zeit:" + ' : ' + todo.time + '</td>
+										</tr>';
+			});
+		  }
+		});
+
+		function onSubmit() {
+
+			var todo = {};
+			todo.name = document.getElementById('name').value;
+			todo.userId = document.getElementById('userid').value;
+			todo.place = document.getElementById('ort').value;
+			todo.time = document.getElementById('zeit').value;
+
+			$.ajax({
+			  method: "POST",
+			  url: "http://localhost:3000/todos",
+			  data: JSON.stringify(todo),
+			  contentType: "application/json",
+			  dataType: 'json',
+			  success: function(data) {
+			  	var table = document.getElementById('todos');
+
+				table.innerHTML += '<tr><td>' + todo.name + ' : ' + todo.place + '</td></tr>';
+			  }	
+			});
+		}
+	</script>
+	<form>
+	  <fieldset>
+	    <legend>Personal information:</legend>
+	    Name:<br>
+	    <input id="name" type="text" name="firstname" ><br>
+	    User Id:<br>
+	    <input id="userid" type="text" name="lastname" ><br>
+	    Ort:<br>
+	    <input id="ort" type="text" name="firstname" ><br>
+	    Zeit:<br>
+	    <input id="zeit" type="text" name="lastname" ><br><br>
+	    <input id="submit" type="button" onclick="onSubmit()" value="Click Me!">
+	  </fieldset>
+	</form>
+	<table id="todos" style="width:100%">
+	</table>
+</body>
+</html>

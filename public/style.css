@@ -1,0 +1,15 @@
+form {
+	max-width: 300px;
+	margin: auto;
+}
+
+table, th, td {
+	margin: auto;
+	max-width: 300px;
+	margin-top: 40px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+}
