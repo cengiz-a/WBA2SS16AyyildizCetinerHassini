@@ -16,11 +16,7 @@
 		  	var table = document.getElementById('todos');
 			
 			data.forEach(function(todo) {
-				table.innerHTML += '<tr><td>' + "id:" + ' : ' + todo.id + '</td>
-										<td>' + "Art:" + ' : ' + todo.name + '</td>
-										<td>' + "Ort:" + ' : ' + todo.place + '</td>
-										<td>' + "Zeit:" + ' : ' + todo.time + '</td>
-										</tr>';
+				table.innerHTML += '<tr><td>' + "Name:" + ' : ' + todo.name + '</td></tr>';
 			});
 		  }
 		});
